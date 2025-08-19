@@ -1,0 +1,111 @@
+/* CSS ปรับให้ทุกอย่างอยู่ในฟอร์ม */
+.points-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: linear-gradient(to bottom, #d4edda, #b7e4c7);
+  padding: 20px;
+}
+
+.points-form {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* ส่วนหัว */
+.points-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: bold;
+  position: relative;
+}
+
+
+/* ขนาดของคะแนนสะสม */
+.points-title {
+/* ปรับขนาดตัวอักษรของ "ประวัติคะแนนสะสม" ให้เล็กลง */
+  font-size: 22px; /* ลดขนาดตัวอักษร */
+  font-weight: bold;
+  color: #0A3D3A;
+}
+
+
+/* การ์ดคะแนนสะสม */
+.points-card {
+  width: 100%;
+  background: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.points-icon {
+  font-size: 24px;
+  color: #2d6a4f;
+}
+
+.points-value {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.points-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.history-link {
+  color: #3b82f6;
+  font-size: 14px;
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* ส่วนหมายเหตุ */
+.points-note {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.points-note h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.points-note ul {
+  font-size: 14px;
+  color: #555;
+  padding-left: 15px;
+}
+
+.learn-more-link {
+  color: #3b82f6;
+  font-size: 14px;
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+  cursor: pointer;
+}

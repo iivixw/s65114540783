@@ -1,0 +1,127 @@
+/* 🌟 ปรับ Layout หลัก */
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 📌 ปรับให้ฟอร์มอยู่ตรงกลางและลดระยะห่างด้านบน */
+.content-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 10px; /* ลดระยะห่างด้านบน */
+}
+
+/* 📌 ฟอร์ม */
+.waste-container {
+  width: 100%;
+  max-width: 650px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* 📌 หัวข้อ */
+.waste-container h2 {
+  font-size: var(--h2-size, 26px);
+  color: #2b5c53;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.waste-container h3 {
+  font-size: var(--h3-size, 20px);
+  color: #2b5c53;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* 📌 ปรับขนาดฟอร์มให้ input เท่ากันและลด margin */
+.waste-form .form-group {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* 📌 ปรับขนาดของ input และ select ให้เท่ากัน */
+.input-field {
+  width: 100%;
+  max-width: 800px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* ✅ ปรับปุ่มให้ใกล้กันเฉพาะหน้านี้ */
+.waste-container .button-group {
+  display: flex;
+  gap: 8px; /* ลดช่องว่างจากเดิม */
+  width: 100%;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+/* ✅ ปุ่ม submit และ cancel */
+.waste-container .btn-submit {
+  background-color: #2b5c53;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 180px;
+  max-width: 200px;
+}
+
+.waste-container .btn-cancel {
+  background-color: #d9534f;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 180px;
+  max-width: 200px;
+}
+
+/* 📌 ตาราง */
+.waste-table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+}
+
+.waste-table th,
+.waste-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+/* 📌 ปุ่มไอคอน */
+.btn-edit,
+.btn-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.btn-edit svg,
+.btn-delete svg {
+  width: 20px;
+  height: 20px;
+  color: #333;
+}

@@ -1,0 +1,107 @@
+/* ================= Header ================= */
+.dashboard-container .logo img {
+  height: 60px;
+  margin-right: 20px;
+}
+
+.dashboard-container .nav-menu ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.dashboard-container .nav-menu ul li {
+  margin-right: 20px;
+}
+
+.dashboard-container .nav-menu ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 22px;
+  font-family: "Libre Bodoni", serif;
+}
+
+.dashboard-container .nav-menu ul li a:hover {
+  text-decoration: underline;
+}
+
+/* ป้องกันการซ้อน Header เฉพาะหน้า Dashboard เท่านั้น */
+.dashboard-container {
+  padding-top: 100px; /* ดันเนื้อหาลงมาจาก Header */
+}
+
+.dashboard-container .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: #0c6862;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  height: 80px;
+  box-sizing: border-box;
+}
+
+/* ================= Title ================= */
+.dashboard-container .title {
+  font-size: 24px;
+  font-family: "Libre Bodoni", serif;
+  color: #333;
+  text-align: center;
+  margin-top: -20px;
+  margin-bottom: 10px;
+}
+
+/* ================= News Section ================= */
+.dashboard-container .news-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0px;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.dashboard-container .news-item {
+  flex: 1 1 calc(19% - 20px);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+}
+
+.dashboard-container .news-item img {
+  width: 230px;
+  height: 380px;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+
+.dashboard-container .news-item img:hover {
+  transform: scale(1.05);
+}
+
+/* ================= Schedule Table ================= */
+.dashboard-container .schedule-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.dashboard-container .schedule-section th,
+.dashboard-container .schedule-section td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.dashboard-container .schedule-section th {
+  background-color: #0c6862ea;
+  color: white;
+}

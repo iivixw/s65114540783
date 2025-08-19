@@ -1,0 +1,92 @@
+# docker-compose.prod.yml  (แก้เว้นวรรคแล้ว)
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: project_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: rootpass
+      POSTGRES_DB: appdb
+    ports:
+      - "5433:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d appdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4:8
+    container_name: project_pgadmin
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: adminpass
+    ports:
+      - "8088:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: project_api
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      PGHOST: postgres
+      PGPORT: 5432
+      PGDATABASE: appdb
+      PGUSER: appuser
+      PGPASSWORD: apppass
+      CORS_ORIGIN: "http://202.28.49.122"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "5000:5000"
+
+  web:
+    build:
+      context: ./waste
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_URL: "http://202.28.49.122:5000"  # สำหรับ CRA; ถ้า Vite ให้เปลี่ยนชื่อ arg เป็น VITE_API_URL
+    container_name: project_web
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+
+  php:
+    build:
+      context: ./xampp
+      dockerfile: Dockerfile
+    container_name: project_php
+    environment:
+      APP_ENV: production
+      DB_DRIVER: pgsql
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: appdb
+      DB_USER: appuser
+      DB_PASS: apppass
+    ports:
+      - "8080:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./xampp:/var/www/html
+
+volumes:
+  pg_data:
+  pgadmin_data:

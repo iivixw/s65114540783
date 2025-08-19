@@ -1,0 +1,209 @@
+/* ✅ ตั้งค่าเฉพาะหน้านี้ */
+.complaint-page {
+  display: flex;
+  min-height: auto; /* 🔧 เปลี่ยนจาก 100vh เพื่อไม่ให้สูงเกิน */
+  background-color: transparent;
+}
+
+/* ✅ Layout ซ้าย-ขวา */
+.complaint-page .complaint-layout {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  flex-wrap: wrap;
+  align-items: flex-start; /* 🔧 ให้ความสูงพอดีกับเนื้อหา */
+}
+
+/* ✅ กล่องฟอร์ม (ด้านซ้าย) */
+.complaint-page .main-container {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 470px;
+  max-width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* 🔧 ปรับความสูงตามเนื้อหา */
+  height: auto;
+}
+
+/* ✅ กล่องตาราง (ด้านขวา) */
+.complaint-page .table-container {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 800px;
+  max-width: 100%;
+  flex-grow: 1;
+
+  /* 🔧 ปรับความสูงให้พอดี */
+  height: auto;
+  max-height: none;
+  overflow-y: visible;
+}
+
+/* ✅ ข้อความไม่มีข้อมูลร้องเรียน */
+.complaint-page .no-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  font-size: 16px;
+  color: #444;
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+/* ✅ หัวข้อ */
+.complaint-page .custom-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2f6d62;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+/* ✅ กล่องค้นหา */
+.complaint-page .search-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.complaint-page .search-box {
+  width: 240px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.complaint-page .btn-search {
+  padding: 10px 14px;
+  background-color: #3498db;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ✅ ฟอร์ม */
+.complaint-page .form-group {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.complaint-page label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.complaint-page input,
+.complaint-page select,
+.complaint-page textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.complaint-page textarea {
+  height: 80px;
+  resize: none;
+}
+
+/* ✅ ปุ่ม */
+.complaint-page .button-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.complaint-page .btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.complaint-page .btn-submit {
+  background-color: #2f6d62;
+  color: white;
+}
+
+.complaint-page .btn-submit:hover {
+  background-color: #1d5a50;
+}
+
+.complaint-page .btn-cancel {
+  background-color: #c0392b;
+  color: white;
+}
+
+.complaint-page .btn-cancel:hover {
+  background-color: #a93226;
+}
+
+/* ✅ ตาราง */
+.complaint-page .complaint-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.complaint-page .complaint-table th,
+.complaint-page .complaint-table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.complaint-page .complaint-table thead {
+  background-color: #2f6d62;
+  color: white;
+}
+
+.complaint-page .complaint-table button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+/* ✅ Responsive */
+@media (max-width: 992px) {
+  .complaint-page .complaint-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .complaint-page .main-container,
+  .complaint-page .table-container {
+    width: 95%;
+  }
+
+  .complaint-page .search-box {
+    width: 100%;
+  }
+
+  .complaint-page .search-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

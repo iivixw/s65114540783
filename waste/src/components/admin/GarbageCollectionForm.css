@@ -1,0 +1,237 @@
+/* Layout wrapper */
+.garbage-collection-page {
+  display: flex;
+  min-height: 100vh;
+}
+
+.garbage-form-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.garbage-form-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Form Section */
+.garbage-form-section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 460px;
+  flex-shrink: 0;
+}
+
+/* Table Section */
+.garbage-table-section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 700px;
+  flex-grow: 1;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Headings */
+.custom-heading {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2b5c53;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+/* Search bar */
+.search-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+  justify-content: center;
+}
+
+.search-box {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 180px; /* Smaller than form inputs */
+}
+
+.btn-search {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Form Elements */
+.garbage-form .form-group {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.garbage-form input,
+.garbage-form select {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Buttons */
+.garbage-form .button-group {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.garbage-form .btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  min-width: 140px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.garbage-form .btn-submit {
+  background-color: #2B5C53;
+  color: white;
+}
+
+.garbage-form .btn-cancel {
+  background-color: #d9534f;
+  color: white;
+}
+
+/* Icon buttons */
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Table */
+.garbage-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.garbage-table th,
+.garbage-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+.garbage-table th {
+  background-color: #2b5c53;
+  color: white;
+}
+
+/* Center icon buttons in cells */
+.garbage-table td .btn-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* No data */
+.no-data-box {
+  padding: 0px 0 30px 0;
+  text-align: center;
+  color: #333;
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .garbage-form-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .garbage-form-section,
+  .garbage-table-section {
+    width: 95%;
+  }
+
+  .search-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+}
+/* ปรับความกว้างช่องค้นหาเฉพาะหน้า GarbageCollectionForm */
+#garbage-search-box {
+  width: 280px;         /* ✅ ความกว้างเริ่มต้น */
+  max-width: 280px;     /* ✅ ปรับได้ตามต้องการ */
+  transition: width 0.3s ease;
+}
+
+#garbage-search-box:focus {
+  width: 250px;         /* ✅ ขยายเมื่อโฟกัส */
+}
+/* ✅ ปรับ select "ประเภท" ให้เท่าช่อง input อื่น */
+.garbage-form select {
+  width: 100% !important;   /* ให้กว้างเต็มเหมือน input */
+  max-width: 100%;          /* ป้องกันความกว้างไม่เท่ากัน */
+  box-sizing: border-box;
+}
+
+/* ✅ จัดให้ทุกอย่างใน form อยู่กึ่งกลาง */
+.garbage-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.garbage-form .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px; /* ความกว้างของช่อง input/select */
+}
+/* ✅ ชิดซ้าย label เฉพาะหน้า GarbageCollectionForm */
+.garbage-form .form-group label {
+  width: 100%;
+  text-align: left;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+/* ✅ จัดกลางเฉพาะไอคอนในคอลัมน์ "แก้ไข" และ "ลบ" สำหรับหน้า GarbageCollectionForm */
+.garbage-table td .btn-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%; /* ✅ ให้เต็มเซลล์เพื่อจัดกลางได้แน่นอน */
+  padding: 8px 0;
+}

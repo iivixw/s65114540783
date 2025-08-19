@@ -1,0 +1,189 @@
+/* Header (เดิม) */
+.home-header {
+  background-color: #f5f2e6;
+  padding: 20px;
+  text-align: center;
+}
+.home-header h1 {
+  color: #6b7755;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.home-header ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 15px 0 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.home-header li {
+  color: #6b7755;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* ===== Scope only Home page ===== */
+.wm-page {
+  --wm-sidebar: 0px;  /* set by JS */
+  --wm-topbar: 0px;   /* set by JS */
+
+  /* กันซ้อนกับ sidebar/topbar เฉพาะหน้านี้ */
+  padding-left: var(--wm-sidebar);
+  padding-top: var(--wm-topbar);
+}
+
+/* Hero Carousel */
+.wm-hero {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  background: #e9eddc;
+}
+.wm-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 600ms ease, transform 700ms ease;
+  background-size: cover;
+  background-position: center;
+}
+.wm-slide--active {
+  opacity: 1;
+  transform: scale(1);
+}
+.wm-slide-overlay {
+  position: absolute;
+  /* เว้นจาก sidebar เสมอ + ค่ากันชน 24px */
+  left: calc(var(--wm-sidebar) + clamp(16px, 6vw, 72px));
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(245, 242, 230, 0.88);
+  padding: 28px 32px;
+  border-radius: 16px;
+  max-width: 520px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.wm-slide-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #2d4d3a;
+  margin: 0 0 8px;
+}
+.wm-slide-sub {
+  color: #6b7755;
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+.wm-cta {
+  background-color: #c7a56e;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.25s;
+}
+.wm-cta:hover {
+  background-color: #b69360;
+}
+
+.wm-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  font-size: 28px;
+  line-height: 44px;
+}
+.wm-nav--left { left: 14px; }
+.wm-nav--right { right: 14px; }
+
+.wm-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.wm-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  cursor: pointer;
+}
+.wm-dot--active { background: #c7a56e; }
+
+/* Controls */
+.wm-controls {
+  background: #ffffff;
+  border-top: 1px solid #e9e9e9;
+  border-bottom: 1px solid #e9e9e9;
+}
+.wm-controls-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 768px) {
+  .wm-controls-inner { grid-template-columns: 1fr; }
+}
+.wm-control { display: flex; flex-direction: column; gap: 6px; }
+.wm-label { font-size: 0.9rem; color: #2d4d3a; font-weight: 700; }
+.wm-input, .wm-select {
+  width: 100%;
+  background: #f8f8f5;
+  border: 1px solid #e2e2dc;
+  border-radius: 10px;
+  padding: 10px 12px;
+  outline: none;
+  color: #2d4d3a;
+}
+.wm-input:focus, .wm-select:focus {
+  border-color: #c7a56e;
+  box-shadow: 0 0 0 3px rgba(199,165,110,0.18);
+}
+
+/* Cards */
+.wm-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transition: transform .2s ease, box-shadow .3s ease;
+  overflow: hidden;
+}
+.wm-card:hover { transform: translateY(-4px); box-shadow: 0 12px 22px rgba(0,0,0,0.18); }
+.wm-meta { display: flex; gap: 8px; margin: 10px 0 4px; flex-wrap: wrap; }
+.wm-chip {
+  font-size: 12px; background: #eef1e6; color:#2d4d3a;
+  padding: 4px 8px; border-radius: 999px; border: 1px solid #e1e7d3;
+}
+
+.wm-btn {
+  margin-top: 10px; background-color:#c7a56e; color:#fff;
+  padding:10px 16px; border-radius:8px; font-size:.9rem;
+  border:none; cursor:pointer; transition: background .3s; width:100%;
+}
+.wm-btn:hover { background-color:#b69360; }
+
+/* Keep original helper styles (from your previous file) */
+.bg-dark-green { background-color:#6b7755; color:white; padding:60px 20px; text-align:center; }
+.bg-light { background-color:#f5f2e6; padding:60px 20px; text-align:center; }
+.activities-section { background-color:#6b7755; color:white; padding:60px 20px; text-align:center; }
+

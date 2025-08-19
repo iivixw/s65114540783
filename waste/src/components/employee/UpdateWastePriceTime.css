@@ -1,0 +1,196 @@
+/* ✅ ใช้เฉพาะกับ .update-waste-form เท่านั้น */
+.update-waste-form select,
+.update-waste-form input[type="number"],
+.update-waste-form .custom-date-input,
+.update-waste-form button {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  padding: 10px 12px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+
+.update-waste-form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.update-waste-form button:hover {
+  background-color: #0056b3;
+}
+
+/* 🔹 กลุ่มช่วงวันที่ */
+.update-date-wrapper {
+  margin-bottom: 20px;
+}
+
+.update-label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+  color: #2c3e50;
+}
+
+/* ✅ กล่อง input 2 ช่องแนวนอน */
+.update-waste-form .date-input-group {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.update-waste-form .custom-date-input {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.update-waste-form .custom-date-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* ✅ กล่องข้อความผลลัพธ์หลังเพิ่มข้อมูล */
+.update-waste-page .waste-added-box {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid #d4d4d4;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  color: #333;
+}
+
+.update-waste-page .waste-added-box h3 {
+  margin: 0 0 8px;
+  color: #007bff;
+}
+
+/* 🔷 กล่องโปรโมชันแบบหรู */
+.update-waste-page .promo-card {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #fefefe;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.update-waste-page .promo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.update-waste-page .promo-circle {
+  width: 56px;
+  height: 56px;
+  background-color: #007bff;
+  color: white;
+  font-size: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.update-waste-page .promo-rank {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.update-waste-page .badge {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  margin-top: 4px;
+  margin-right: 4px;
+}
+
+.update-waste-page .badge.yellow {
+  background-color: #f4b400;
+}
+
+.update-waste-page .promo-score {
+  font-size: 20px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.update-waste-page .promo-desc {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #555;
+}
+
+.update-waste-page .promo-btn {
+  margin-top: 16px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.update-waste-page .promo-btn:hover {
+  background-color: #0056b3;
+}
+
+/* 🔽 รายละเอียดโปรโมชั่น */
+.update-waste-page .promo-detail-box {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fefefe;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.update-waste-page .promo-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.update-waste-page .promo-detail-header h3 {
+  font-size: 18px;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.update-waste-page .close-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+}
+
+.update-waste-page .close-btn:hover {
+  color: #000;
+}
+
+.update-waste-page .promo-detail-box p {
+  margin: 6px 0;
+  font-size: 14px;
+}

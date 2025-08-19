@@ -1,0 +1,115 @@
+.admin-layout {
+  display: flex;
+  height: 100vh;
+}
+
+.profile-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 30px;
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+}
+
+.back-button {
+  display: none;
+}
+
+.custom-heading {
+  color: #2B5C53;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.profile-card {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.profile-img-container {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #2B5C53;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 90%;
+  margin: auto;
+}
+
+.profile-form label {
+  font-weight: bold;
+  width: 100%;
+  margin-bottom: 3px;
+}
+
+.profile-form input {
+  width: 200%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  background: #f8f9fa;
+  margin-bottom: 8px;
+}
+
+/* ✅ ปุ่มเฉพาะหน้านี้เท่านั้น */
+.profile-button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 2px;
+}
+
+.profile-btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  min-width: 140px;
+  transition: background 0.3s ease;
+}
+
+.profile-submit {
+  background-color: #2B5C53;
+  color: white;
+}
+
+.profile-submit:hover {
+  background-color: #237a63;
+}
+
+.profile-cancel {
+  background-color: #d9534f;
+  color: white;
+}
+
+.profile-cancel:hover {
+  background-color: #c9302c;
+}

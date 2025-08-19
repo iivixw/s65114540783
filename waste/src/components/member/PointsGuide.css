@@ -1,0 +1,62 @@
+/* ปรับให้ทุกอย่างอยู่ในฟอร์ม */
+.guide-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to bottom, #d4edda, #b7e4c7);
+  padding: 20px;
+}
+
+.guide-form {
+  width: 100%;
+  max-width: 800px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ส่วนหัว */
+.guide-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* ปรับขนาดตัวอักษรของ "วิธีการสะสมคะแนน" */
+.guide-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #0A3D3A;
+}
+
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background: #2f6d62;
+  color: white;
+  font-weight: bold;
+}
+
+
+tr:nth-child(even) {
+  background: #f8f9fa;
+}

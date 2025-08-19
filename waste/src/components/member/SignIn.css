@@ -1,0 +1,125 @@
+/* ช่องกรอกข้อมูล */
+.input-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+/* ปรับขนาดช่องกรอกข้อมูล */
+.input-container input {
+  width: 100%;
+  padding: 14px 14px 14px 50px; /* ขยับข้อความให้ห่างจากไอคอน 10px */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  background: #f8f9fa;
+}
+
+/* ไอคอนในช่องกรอกข้อมูล */
+.input-icon {
+  position: absolute;
+  left: 15px; /* ขยับไอคอนให้ชิดซ้าย */
+  font-size: 20px;
+  color: #888;
+  top: 50%;
+  transform: translateY(-50%); /* จัดให้อยู่ตรงกลางช่อง */
+}
+
+/* ฟอร์มการเข้าสู่ระบบ */
+.auth-page {
+  background: linear-gradient(to bottom, #d4edda, #b7e4c7);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* กล่องฟอร์ม */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* กล่องการ์ด */
+.login-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  min-width: 350px; /* กำหนดขนาดขั้นต่ำ */
+  max-width: 350px; /* กำหนดขนาดสูงสุด */
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* โลโก้ */
+.login-card img {
+  width: 220px;
+  margin-bottom: 0px;
+}
+
+.login-card h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #134A40;
+}
+
+/* ข้อความผิดพลาด */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* ปุ่มเข้าสู่ระบบ */
+.submit-button {
+  width: 100%;
+  background: #619779;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ลิงก์เพิ่มเติม */
+.additional-links p {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.additional-links p a {
+  color: #619779;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.additional-links p a:hover {
+  text-decoration: underline;
+}
+
+
+.submit-button {
+  margin-top: 20px;
+  background-color: #619779;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #2B5C53;
+}

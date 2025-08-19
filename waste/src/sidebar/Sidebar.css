@@ -1,0 +1,71 @@
+/* ปรับสไตล์ของ Sidebar */
+.sidebar {
+  background: #0a3d3aeb;
+  color: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  min-height: 100vh;
+  border-radius: 12px; /* ปรับลดเหลี่ยมตามที่ต้องการ */
+  overflow: hidden; /* ป้องกันเนื้อหาล้นออกขอบโค้ง */
+}
+.admin-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  text-decoration: none; /* ลบเส้นใต้เดิมก่อน (ถ้ามี) */
+}
+.admin-profile svg {
+  font-size: 60px; /* ปรับขนาดไอคอนตามต้องการ */
+  color: #ffffff; /* ปรับสีไอคอนตามต้องการ */
+}
+
+.admin-profile .admin-name {
+  font-size: 20px; /* ปรับขนาดข้อความตามต้องการ */
+  color: #ffffff; /* ปรับสีข้อความตามต้องการ */
+}
+
+
+
+
+/* ปรับสไตล์ของ Sidebar Link */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;  /* ทำให้ตัวอักษรเท่ากับไอคอน */
+}
+
+.sidebar li:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ปรับให้ `Link` เป็นสีขาว */
+.sidebar-link {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+}
+
+/* เพิ่มขนาดไอคอน */
+.sidebar li svg {
+  font-size: 24px; /* ทำให้ขนาดไอคอนเท่ากับข้อความ */
+}
+
+.sidebar li:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

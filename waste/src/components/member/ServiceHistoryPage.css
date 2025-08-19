@@ -1,0 +1,111 @@
+/* ตั้งค่าพื้นหลัง */
+.service-history-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to bottom, #d4edda, #b7e4c7);
+  padding-top: 9px; /* ปรับให้ฟอร์มอยู่สูงขึ้น */
+}
+
+/* ฟอร์มอยู่ตรงกลาง */
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* ขยับฟอร์มขึ้นด้านบน */
+  width: 100%;
+  margin-top: 10px;
+}
+
+.history-form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* หัวข้อฟอร์ม + ปรับให้ลูกศรอยู่ในฟอร์ม */
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+/* หัวข้อ */
+.form-title {
+  font-size: 22px;
+  color: #2d6a4f;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* รายการประวัติ */
+.history-list {
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 10px;
+}
+
+/* ปรับให้ข้อมูลอยู่ในแนวเดียวกัน */
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+  text-align: left;
+  width: 100%;
+}
+
+/* ปรับให้วันที่อยู่ในตำแหน่งเดียวกัน */
+.history-service {
+  font-weight: bold;
+  color: #2d6a4f;
+  flex: 1;
+}
+
+.history-date {
+  color: #666;
+  flex: 1;
+  text-align: center; /* จัดวันที่ให้อยู่ตรงกลาง */
+}
+
+.history-points {
+  font-weight: bold;
+  color: #155724;
+  flex: 1;
+  text-align: right; /* จัดคะแนนให้อยู่ด้านขวา */
+}
+
+.no-history {
+  text-align: center;
+  padding: 20px;
+  color: #555;
+}
+
+/* เอากรอบออกเฉพาะปุ่มย้อนกลับในหน้า service-history */
+.service-history-container .icon-button.back-icon {
+  background: none;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  font-size: 24px;
+  color: #2d6a4f;
+  cursor: pointer;
+  padding: 6px;
+  transition: transform 0.2s ease;
+}
+
+.service-history-container .icon-button.back-icon:hover {
+  transform: scale(1.1);
+}

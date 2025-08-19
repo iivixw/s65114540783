@@ -1,0 +1,117 @@
+/* ปรับให้ทุกอย่างอยู่ในฟอร์ม */
+.history-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to bottom, #d4edda, #b7e4c7);
+  padding: 20px;
+}
+
+.history-form {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ส่วนหัว */
+.history-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* ปรับขนาดตัวอักษรของ "ประวัติคะแนนสะสม" ให้เล็กลง */
+.history-title {
+  font-size: 22px; /* ลดขนาดตัวอักษร */
+  font-weight: bold;
+  color: #0A3D3A;
+}
+
+/* Tabs */
+.history-tabs {
+  width: 100%;
+  display: flex;
+  background: white;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.tab.active {
+  border-bottom: 3px solid #2d6a4f;
+  color: #2d6a4f;
+}
+
+/* รายการคะแนน */
+.history-content {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 10px;
+}
+
+.points-list h3 {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.point-item {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.point-info h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.point-info p {
+  margin: 2px 0;
+  font-size: 12px;
+  color: #777;
+}
+
+.point-amount {
+  text-align: right;
+}
+
+.point-value {
+  font-weight: bold;
+  color: #2d6a4f;
+}
+
+/* กรณีไม่มีข้อมูล */
+.no-data {
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+  padding: 10px;
+}

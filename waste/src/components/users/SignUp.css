@@ -1,0 +1,133 @@
+/* ตั้งค่าให้พื้นหลังแสดงเฉพาะหน้า SignUp */
+.signup-page {
+  background: linear-gradient(to bottom, #d4edda, #b7e4c7);
+  min-height: 100vh; /* ให้เต็มจอ */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* จัดฟอร์มให้อยู่กึ่งกลาง */
+  padding: 20px; /* ป้องกันเนื้อหาแนบชิดขอบจอ */
+}
+
+/* การ์ดฟอร์ม Signup */
+.signup-card {
+  background: #fff;
+  padding: 60px; /* ลดขนาด Padding ให้เหมาะสม */
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  max-width: 420px; /* กำหนดขนาดฟอร์ม */
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้ฟอร์มดูโดดเด่น */
+}
+.login-card h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #134A40;
+}
+/* ปรับขนาดโลโก้ */
+.signup-card img {
+  width: 220px; /* ปรับขนาดโลโก้ให้เล็กลง */
+  margin-bottom: 15px;
+}
+
+/* ฟอร์มเฉพาะในหน้า Signup */
+.signup-card form {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* จัดให้ทุกองค์ประกอบอยู่ตรงกลาง */
+  justify-content: center; /* จัดให้องค์ประกอบอยู่กลางแนวตั้ง */
+  width: 100%;
+  max-width: 400px;
+  margin: auto; /* จัดให้อยู่กึ่งกลางของการ์ด */
+}
+
+/* สไตล์ช่องป้อนข้อมูล */
+.input-container,
+.password-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+
+/* Dropdown เลือกหมู่บ้าน */
+.select-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.select-container select {
+  width: 100%;
+  padding: 14px 18px 14px 50px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 18px;
+  background: #f8f9fa;
+  appearance: none;
+  cursor: pointer;
+}
+
+.select-icon {
+  position: absolute;
+  left: 15px;
+  font-size: 20px;
+  color: #888;
+}
+
+.password-container .toggle-password {
+  right: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* ปุ่มสมัครสมาชิก */
+.signup-card button.submit-button {
+  width: 100%;
+  padding: 14px;
+  background: #619779;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.signup-card button.submit-button:hover {
+  background: #2B5C53;
+}
+
+/* ข้อความเพิ่มเติม */
+.signup-card p {
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.signup-card p a {
+  color: #619779;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-card p a:hover {
+  text-decoration: underline;
+}
+
+/* ปุ่มย้อนกลับ */
+.signup-card .back-button {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}

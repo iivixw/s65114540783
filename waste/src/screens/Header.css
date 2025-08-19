@@ -1,0 +1,42 @@
+.header {
+  position: fixed; /* ตรึง Header ให้อยู่ด้านบนเสมอ */
+  top: 0; /* ชิดขอบบนของหน้าจอ */
+  left: 0; /* ชิดขอบซ้ายของหน้าจอ */
+  width: 100%; /* ขยายให้เต็มความกว้างหน้าจอ */
+  display: flex;
+  justify-content: space-between; /* จัดเนื้อหาซ้าย-ขวา */
+  align-items: center;
+  background-color: #0a3d3aeb; /* สีพื้นหลัง */
+  color: white; /* สีข้อความ */
+  padding: 5px 20px; /* ระยะห่างด้านใน */
+  z-index: 1000; /* ให้อยู่ด้านหน้าของเนื้อหา */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* เพิ่มเงาใต้ Header */
+  box-sizing: border-box; /* ทำให้ padding ไม่เพิ่มขนาดของ Header */
+  overflow: hidden; /* ซ่อนเนื้อหาที่ล้น */
+}
+
+.logo img {
+  height: 60px; /* ปรับขนาดโลโก้ */
+  max-width: 100%; /* ให้โลโก้ไม่ล้น */
+}
+
+.navbar {
+  display: flex; /* จัดเรียงลิงก์ในแนวนอน */
+  flex-wrap: wrap; /* หากพื้นที่ไม่พอให้ลิงก์ขึ้นบรรทัดใหม่ */
+  justify-content: flex-end; /* จัดให้อยู่ทางด้านขวา */
+  gap: 15px; /* ระยะห่างระหว่างลิงก์ */
+}
+
+.navbar a {
+  color: white; /* สีข้อความลิงก์ */
+  text-decoration: none; /* ลบเส้นใต้ของลิงก์ */
+  padding: 5px 0px; /* ระยะห่างรอบข้อความ */
+  font-size: 24px; /* ขนาดตัวอักษร */
+  letter-spacing: 1px; /* เพิ่มระยะห่างระหว่างตัวอักษร */
+  white-space: nowrap; /* ป้องกันข้อความไม่ให้ตัดบรรทัด */
+  transition: color 0.3s ease; /* เพิ่มเอฟเฟกต์เมื่อเปลี่ยนสี */
+}
+
+.navbar a:hover {
+  text-decoration: underline; /* เส้นใต้เมื่อชี้เมาส์ */
+}

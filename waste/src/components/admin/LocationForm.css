@@ -1,0 +1,168 @@
+/* ✅ โครงสร้างหลักของหน้า */
+.location-page {
+  display: flex;
+  min-height: 100vh;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+}
+
+/* ✅ ปรับ Sidebar ให้ชิดซ้าย */
+.location-layout {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  flex-shrink: 0;
+}
+
+.location-form-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 10px auto; /* ✅ ลดจาก 40px เป็น 10px เพื่อให้ฟอร์มอยู่ใกล้ขอบบน */
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+
+.custom-heading {
+  font-size: 20px;
+  color: #2b5c53;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* ✅ กล่องค้นหา */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.search-box {
+  width: 50%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.btn-search {
+  background-color: #41abf2;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-search:hover {
+  background-color: #0b83d3;
+}
+
+/* ✅ กลุ่ม label + input */
+.form-group {
+  text-align: left;
+  margin-bottom: 6px;
+}
+
+.form-group label {
+  font-weight: bold;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* ✅ ปุ่ม เพิ่ม/ยกเลิก ชิดกัน */
+.location-form-container .button-group {
+  display: flex;
+  justify-content: center;
+  gap: 4px; /* ลดช่องว่างให้ปุ่มอยู่ใกล้กัน */
+  margin-top: 10px;
+}
+
+.location-form-container .btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  min-width: 110px;
+  cursor: pointer;
+}
+
+.location-form-container .btn-submit {
+  background-color: #2b5c53;
+  color: white;
+}
+
+.location-form-container .btn-cancel {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.location-form-container .btn-submit:hover {
+  background-color: #237a63;
+}
+
+.location-form-container .btn-cancel:hover {
+  background-color: #c0392b;
+}
+
+/* ✅ ตาราง */
+.table-container {
+  margin-top: 15px;
+}
+
+.location-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.location-table th,
+.location-table td {
+  padding: 6px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.location-table th {
+  background-color: #2b5c53;
+  color: white;
+}
+
+/* ✅ ปุ่มแก้ไข/ลบ */
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.btn-icon svg {
+  width: 18px;
+  height: 18px;
+  color: #333;
+}

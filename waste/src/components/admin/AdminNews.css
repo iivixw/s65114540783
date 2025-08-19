@@ -1,0 +1,174 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  align-items: flex-start;
+}
+
+.content-wrapper {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0px; /* ลดจาก 20px เหลือ 10px */
+  padding: 20px;
+}
+
+.news-form-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85%;
+  margin-top: 10px;
+}
+
+.news-form .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.news-form input,
+.news-form select,
+.news-form textarea {
+  width: 100%;
+  max-width: 450px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.news-form select {
+  width: 120%;
+  max-width: 370px;
+}
+
+.news-form textarea {
+  height: 120px;
+  resize: none;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.button-group .btn-submit,
+.button-group .btn-cancel {
+  width: 180px;
+  max-width: 200px;
+}
+
+.btn {
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-submit {
+  background-color: #2b5c53;
+  color: white;
+}
+
+.btn-cancel {
+  background-color: #d9534f;
+  color: white;
+}
+
+.news-list-container {
+  background: white;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  margin-left: 0;
+}
+
+.news-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.news-table th,
+.news-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.news-table th:nth-child(1) {
+  width: 15%;
+}
+.news-table th:nth-child(2) {
+  width: 20%;
+}
+.news-table th:nth-child(3) {
+  width: 15%;
+}
+.news-table th:nth-child(4) {
+  width: 25%;
+}
+.news-table th:nth-child(5),
+.news-table th:nth-child(6),
+.news-table th:nth-child(7) {
+  width: 7.5%;
+}
+
+.news-image {
+  max-width: 100px;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* เฉพาะปุ่มในฟอร์ม AdminNews */
+.news-form-container .btn-submit,
+.news-form-container .btn-cancel {
+  font-size: 18px;        /* ✅ ขยายขนาดตัวอักษร */
+  border: none !important; /* ✅ ลบขอบดำออก */
+  box-shadow: none !important; /* กันกรณีมีเงาขอบ */
+}
+.no-data-news {
+  padding: 20px 0 40px;
+  color: #333;
+  font-size: 16px;
+  text-align: center;
+}
+/* Label สำหรับหน้า AdminNews เท่านั้น */
+.news-form label {
+  font-weight: bold;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 6px;
+  color: #000000; /* สีเขียวเข้มเหมือนหัวข้อ */
+  text-align: left;
+  width: 100%;
+  max-width: 450px;
+}
+.news-form .form-group {
+  align-items: flex-start; /* จาก center -> flex-start */
+}
+/* ปรับขนาดและสีหัวข้อ "รายการข่าวที่โพสต์" เฉพาะหน้า AdminNews */
+.news-list-container .list-title {
+  font-size: 22px;
+  color: #2b5c53; /* สีเขียวเข้ม */
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+/* ปรับขนาด/สีหัวข้อ "จัดการข่าวสารและกิจกรรม" เฉพาะหน้า AdminNews */
+.news-form-container .news-form-title {
+  font-size: 22px;
+  color: #2b5c53;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
