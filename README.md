@@ -66,3 +66,15 @@ docker compose down                    :: ปิดทั้งหมด (ไม
 >ในโค้ด/.env ต้องใช้ DB_HOST=mysql และ DB_PORT=3306 (ห้ามใช้ 127.0.0.1 ภายในคอนเทนเนอร์)
 
 >เข้า phpMyAdmin ไม่ได้: รอให้ mysql เป็น healthy แล้วลอง root/rootpass อีกครั้ง
+
+
+
+git clone https://github.com/iivixw/wichayada65114540783.git
+cd wichayada65114540783
+docker compose up -d --build
+## รอ health
+curl -fsS http://localhost:10783/healthz && echo OK
+## เปิดหน้าเว็บ
+## Windows (CMD): start http://localhost:10783
+## Windows (PowerShell): Start-Process http://localhost:10783
+
