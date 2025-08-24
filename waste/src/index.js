@@ -1,16 +1,26 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./index.css";
-// ถ้าไม่ได้ใช้ web vitals ลบบรรทัดถัดไปทิ้งได้
-// import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// กรณี public/index.html ไม่มี <div id="root">
+function ensureRoot() {
+  let el = document.getElementById("root");
+  if (!el) {
+    document.body.innerHTML = "";
+    el = document.createElement("div");
+    el.id = "root";
+    document.body.appendChild(el);
+  }
+  return el;
+}
+
+const root = createRoot(ensureRoot());
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
-
-// ถ้าไม่ใช้ก็ลบบรรทัดนี้ด้วย
-// reportWebVitals();

@@ -1,94 +1,51 @@
 version: "3.9"
 
 services:
-  postgres:
-    image: postgres:15-alpine
-    container_name: postgres
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: rootpass
-      POSTGRES_DB: appdb
-    ports:
-      - "5433:5432"               # ภายนอก 5433 -> ภายใน 5432
-    volumes:
-      - pg_data:/var/lib/postgresql/data
-      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d appdb"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-  pgadmin:
-    image: dpage/pgadmin4:8
-    container_name: pgadmin
-    depends_on:
-      postgres:
-        condition: service_healthy
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@example.com
-      PGADMIN_DEFAULT_PASSWORD: adminpass
-    ports:
-      - "8085:80"                 # http://202.28.49.122:8085
-    volumes:
-      - pgadmin_data:/var/lib/pgadmin
-
   api:
     build:
-      context: ./api
-      dockerfile: Dockerfile
-    container_name: api
+      context: .                 # ← เห็นทั้งโปรเจกต์
+      dockerfile: ./api/Dockerfile
+    container_name: wichayada-api-10783
     environment:
-      NODE_ENV: production
-      PORT: 5000
-      PGHOST: postgres
-      PGPORT: 5432
-      PGDATABASE: appdb
-      PGUSER: appuser
-      PGPASSWORD: apppass
-      CORS_ORIGIN: "http://202.28.49.122"
-      BASE_URL: "http://202.28.49.122"
+      - NODE_ENV=production
+      - PORT=10783
+      - DB_HOST=postgres
+      - DB_PORT=20783
+      - REDIS_HOST=redis
+      - REDIS_PORT=30783
+      - CORS_ORIGIN=*
+    ports:
+      - "10783:10783"
     depends_on:
       postgres:
         condition: service_healthy
-    ports:
-      - "5000:5000"
+      redis:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:10783/healthz"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
 
-  web:
-    build:
-      context: ./waste
-      dockerfile: Dockerfile
-    container_name: web
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres-20783
+    command: ["postgres", "-p", "20783"]
     environment:
-      # ให้ build ฝั่ง client ชี้ api ที่ไอพีจริง
-      VITE_API_URL: "http://202.28.49.122:5000"
-      REACT_APP_API_URL: "http://202.28.49.122:5000"
+      - POSTGRES_USER=appuser
+      - POSTGRES_PASSWORD=apppass
+      - POSTGRES_DB=appdb
     ports:
-      - "80:80"                    # เปิดหน้าเว็บที่พอร์ต 80 ของ 202.28.49.122
-    depends_on:
-      - api
+      - "20783:20783"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U appuser -p 20783"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
 
-  php:
-    build:
-      context: ./xampp
-      dockerfile: Dockerfile
-    container_name: php
-    environment:
-      APP_ENV: production
-      DB_DRIVER: pgsql
-      DB_HOST: postgres
-      DB_PORT: 5432
-      DB_NAME: appdb
-      DB_USER: appuser
-      DB_PASS: apppass
+  redis:
+    image: redis:7-alpine
+    container_name: redis-30783
+    command: ["redis-server", "--port", "30783"]
     ports:
-      - "8080:80"
-    depends_on:
-      postgres:
-        condition: service_healthy
-    volumes:
-      - ./xampp:/var/www/html
-
-volumes:
-  pg_data:
-  pgadmin_data:
+      - "30783:30783"

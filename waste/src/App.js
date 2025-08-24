@@ -1,12 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  useLocation,
-  Navigate,
-} from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+
 import Home from "./components/users/Home";
 import SignIn from "./components/member/SignIn";
 import SignUp from "./components/users/SignUp";
@@ -41,66 +36,65 @@ import ReportWaste from "./components/employee/ReportWaste";
 import SidebarEmployee from "./components/employee/SidebarEmployee";
 import Employeeprofile from "./components/employee/Employeeprofile";
 
-
-
-function App() {
+export default function App() {
   const location = useLocation();
 
   return (
     <div className="container">
-      {/* แสดง Header เฉพาะในหน้า Home */}
       {location.pathname === "/home" && <Header />}
 
       <Routes>
-        {/* เพิ่ม default route ไปหน้า Home */}
-        <Route path="/" element={<Navigate to="/home" />} />
+        {/* default -> /home */}
+        <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<Home />} />
-        <Route path="sidebar" element={<Sidebar />} />
-        <Route path="member/signIn" element={<SignIn />} />
-        <Route path="users/signUp" element={<SignUp />} />
+
+        <Route path="/sidebar" element={<Sidebar />} />
+        <Route path="/member/signIn" element={<SignIn />} />
+        <Route path="/users/signUp" element={<SignUp />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="member/account" element={<AccountPage />} />
-        <Route path="member/accountsettings" element={<AccountSettings />} />
-        <Route path="member/rewardpoints" element={<RewardPoints />} />
-        <Route path="member/pointshistory" element={<PointsHistory />} />
-        <Route path="member/pointsguide" element={<PointsGuide />} />
-        <Route path="member/editprofile" element={<EditProfile />} />
-        <Route path="member/addresspage" element={<AddressPage />} />
+
+        <Route path="/member/account" element={<AccountPage />} />
+        <Route path="/member/accountsettings" element={<AccountSettings />} />
+        <Route path="/member/rewardpoints" element={<RewardPoints />} />
+        <Route path="/member/pointshistory" element={<PointsHistory />} />
+        <Route path="/member/pointsguide" element={<PointsGuide />} />
+        <Route path="/member/editprofile" element={<EditProfile />} />
+        <Route path="/member/addresspage" element={<AddressPage />} />
         <Route
-          path="member/changepasswordpage"
+          path="/member/changepasswordpage"
           element={<ChangePasswordPage />}
         />
-        <Route path="member/closeaccountpage" element={<CloseAccountPage />} />
+        <Route path="/member/closeaccountpage" element={<CloseAccountPage />} />
         <Route
-          path="member/servicehistorypage"
+          path="/member/servicehistorypage"
           element={<ServiceHistoryPage />}
         />
-        <Route path="member/reportpage" element={<ReportPage />} />
-        <Route path="admin/admindashboard" element={<AdminDashboard />} />
-        <Route path="admin/adminnew" element={<AdminNews />} />
-        <Route path="admin/adminmembers" element={<AdminMembers />} />
-        <Route path="admin/adminwaste" element={<AdminWasteCategories />} />
-        <Route path="admin/adminprofile" element={<AdminProfile />} />
-        <Route path="admin/locationform" element={<LocationForm />} />
-        <Route path="admin/garbageform" element={<GarbageCollectionForm />} />
-        <Route path="admin/reportform" element={<ReportForm />} />
-        <Route path="admin/complaintform" element={<ComplaintForm />} />
-        <Route path="employee/searchmembers" element={<SearchMembers />} />
-        <Route path="employee/searchwaste" element={<SearchWaste />} />
-        <Route path="employee/udatewasteprice"element={<UpdateWastePrice />} />
-        <Route path="employee/udatewastepricetime" element={<UpdateWastePriceTime />} />
-        <Route path="employee/reportwaste" element={<ReportWaste />} />
-        <Route path="employee/SidebarEmployee" element={<SidebarEmployee />} />
-        <Route path="employee/Employeeprofile" element={<Employeeprofile />} />
+        <Route path="/member/reportpage" element={<ReportPage />} />
 
+        <Route path="/admin/admindashboard" element={<AdminDashboard />} />
+        <Route path="/admin/adminnew" element={<AdminNews />} />
+        <Route path="/admin/adminmembers" element={<AdminMembers />} />
+        <Route path="/admin/adminwaste" element={<AdminWasteCategories />} />
+        <Route path="/admin/adminprofile" element={<AdminProfile />} />
+        <Route path="/admin/locationform" element={<LocationForm />} />
+        <Route path="/admin/garbageform" element={<GarbageCollectionForm />} />
+        <Route path="/admin/reportform" element={<ReportForm />} />
+        <Route path="/admin/complaintform" element={<ComplaintForm />} />
+
+        <Route path="/employee/searchmembers" element={<SearchMembers />} />
+        <Route path="/employee/searchwaste" element={<SearchWaste />} />
+        <Route
+          path="/employee/udatewasteprice"
+          element={<UpdateWastePrice />}
+        />
+        <Route
+          path="/employee/udatewastepricetime"
+          element={<UpdateWastePriceTime />}
+        />
+        <Route path="/employee/reportwaste" element={<ReportWaste />} />
+        <Route path="/employee/SidebarEmployee" element={<SidebarEmployee />} />
+        <Route path="/employee/Employeeprofile" element={<Employeeprofile />} />
       </Routes>
     </div>
-  );
-}
-export default function RouterApp() {
-  return (
-    <Router>
-      <App />
-    </Router>
   );
 }

@@ -2,21 +2,16 @@
 const { Pool } = require("pg");
 
 const pool = new Pool({
-  host: process.env.PGHOST || "postgres",
-  port: process.env.PGPORT ? Number(process.env.PGPORT) : 5432,
-  database: process.env.PGDATABASE || "appdb",
-  user: process.env.PGUSER || "appuser",
-  password: process.env.PGPASSWORD || "apppass",
-  ssl: false,
+  host: process.env.DB_HOST || "postgres",
+  port: Number(process.env.DB_PORT || 20783), // ← พอร์ตตนเอง
+  user: process.env.DB_USER || "appuser",
+  password: process.env.DB_PASS || "apppass",
+  database: process.env.DB_NAME || "appdb",
 });
 
-// helper: แบบ promise
-const query = (text, params) => pool.query(text, params);
-
-// ตัวอย่างทดสอบ
 async function ping() {
-  const { rows } = await pool.query("SELECT NOW() as now");
+  const { rows } = await pool.query("select now() as now");
   return rows[0].now;
 }
 
-module.exports = { pool, query, ping };
+module.exports = { pool, ping };
