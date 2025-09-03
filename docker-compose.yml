@@ -1,19 +1,20 @@
-# เพิ่ม service ใหม่สำหรับ Nginx Reverse Proxy
+version: '3.9'
+
 services:
+
+  # --- Nginx Reverse Proxy ---
   nginx:
-    image: nginx:alpine
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
     container_name: nginx-proxy
     ports:
-      # เปิดพอร์ต 80 ของเครื่องเรา ให้เชื่อมไปยังพอร์ต 80 ของ Nginx container
-      # นี่คือ "ประตูหน้าบ้าน" ใหม่ของระบบ
-      - "80:80"
-    volumes:
-      # นำไฟล์ nginx.conf ที่เราจะสร้าง เข้าไปใช้งานใน container
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - "10783:80"  # bind port 80 ของ container ไปที่ 10783 ของ host
     depends_on:
       - api
     restart: unless-stopped
 
+  # --- Node.js API ---
   api:
     build:
       context: .
@@ -28,11 +29,7 @@ services:
       POSTGRES_DB: 'appdb'
       REDIS_HOST: 'redis'
       REDIS_PORT: '30783'
-      CORS_ORIGIN: 'http://10.80.29.16:10883'
-    # !!! ลบส่วน ports ออก !!!
-    # เราไม่ต้องการให้ API เปิดพอร์ตสู่ภายนอกโดยตรงแล้ว เพราะ Nginx จะจัดการแทน
-    # ports:
-    #   - "10783:10783"
+      CORS_ORIGIN: 'http://10.80.29.16:10883'  # client IP
     volumes:
       - ./api:/usr/src/app
     depends_on:
@@ -42,6 +39,7 @@ services:
         condition: service_started
     restart: unless-stopped
 
+  # --- PostgreSQL Database ---
   postgres:
     image: postgres:16-alpine
     container_name: postgres-db
@@ -62,6 +60,7 @@ services:
       start_period: 15s
     restart: unless-stopped
 
+  # --- Redis Cache ---
   redis:
     image: redis:7-alpine
     container_name: redis-cache
@@ -75,4 +74,3 @@ services:
 volumes:
   postgres_data:
   redis_data:
-
