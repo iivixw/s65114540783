@@ -1,51 +1,78 @@
-version: "3.9"
-
+# เพิ่ม service ใหม่สำหรับ Nginx Reverse Proxy
 services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-proxy
+    ports:
+      # เปิดพอร์ต 80 ของเครื่องเรา ให้เชื่อมไปยังพอร์ต 80 ของ Nginx container
+      # นี่คือ "ประตูหน้าบ้าน" ใหม่ของระบบ
+      - "80:80"
+    volumes:
+      # นำไฟล์ nginx.conf ที่เราจะสร้าง เข้าไปใช้งานใน container
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - api
+    restart: unless-stopped
+
   api:
     build:
-      context: .                 # ← เห็นทั้งโปรเจกต์
+      context: .
       dockerfile: ./api/Dockerfile
-    container_name: wichayada-api-10783
     environment:
-      - NODE_ENV=production
-      - PORT=10783
-      - DB_HOST=postgres
-      - DB_PORT=20783
-      - REDIS_HOST=redis
-      - REDIS_PORT=30783
-      - CORS_ORIGIN=*
-    ports:
-      - "10783:10783"
+      NODE_ENV: 'production'
+      PORT: '10783'
+      DB_HOST: 'postgres'
+      DB_PORT: '20783'
+      POSTGRES_USER: 'appuser'
+      POSTGRES_PASSWORD: 'apppass'
+      POSTGRES_DB: 'appdb'
+      REDIS_HOST: 'redis'
+      REDIS_PORT: '30783'
+      CORS_ORIGIN: 'http://10.80.29.16:10883'
+    # !!! ลบส่วน ports ออก !!!
+    # เราไม่ต้องการให้ API เปิดพอร์ตสู่ภายนอกโดยตรงแล้ว เพราะ Nginx จะจัดการแทน
+    # ports:
+    #   - "10783:10783"
+    volumes:
+      - ./api:/usr/src/app
     depends_on:
       postgres:
         condition: service_healthy
       redis:
         condition: service_started
-    healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost:10783/healthz"]
-      interval: 10s
-      timeout: 3s
-      retries: 10
+    restart: unless-stopped
 
   postgres:
     image: postgres:16-alpine
-    container_name: postgres-20783
+    container_name: postgres-db
     command: ["postgres", "-p", "20783"]
     environment:
-      - POSTGRES_USER=appuser
-      - POSTGRES_PASSWORD=apppass
-      - POSTGRES_DB=appdb
+      POSTGRES_USER: 'appuser'
+      POSTGRES_PASSWORD: 'apppass'
+      POSTGRES_DB: 'appdb'
     ports:
       - "20783:20783"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U appuser -p 20783"]
-      interval: 10s
+      test: ["CMD-SHELL", "pg_isready -U appuser -h 127.0.0.1 -p 20783 || exit 1"]
+      interval: 5s
       timeout: 5s
-      retries: 10
+      retries: 20
+      start_period: 15s
+    restart: unless-stopped
 
   redis:
     image: redis:7-alpine
-    container_name: redis-30783
+    container_name: redis-cache
     command: ["redis-server", "--port", "30783"]
     ports:
       - "30783:30783"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+
